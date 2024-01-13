@@ -10,6 +10,7 @@ import UseCart from '@/hooks/UseCart';
 import { log } from 'console';
 import ProductRating from '../general/ProductRating';
 import TextClip from '@/utils/TextClip';
+import { useRouter } from 'next/navigation';
 
 //Tip tanımlaması yapıldı
 export type CardProductProps = {
@@ -25,6 +26,7 @@ export type CardProductProps = {
 }
 //productId'den geliyor product parametresi
 export default function DetailClient({ product }: { product: any }) {
+  const router = useRouter();
 
   //usecart- usecontext 
   const { productCartQty, addToBasket, cartPrdcts } = UseCart();
@@ -45,7 +47,8 @@ export default function DetailClient({ product }: { product: any }) {
       inStock: product.inStock
     }
   );
-
+    console.log(cardProduct,"cardProduct");
+    
   //sayfa yuklendiginde ürün sepet kontrolu
   useEffect(() => {
     setDisplayButton(false);
@@ -100,7 +103,7 @@ export default function DetailClient({ product }: { product: any }) {
               {/*ürün sepet kontrolu yukarıda yapıldı, varsa buttonu degistir */}
               {
                 displayButton ? <>
-                  <div> <Button text='Ürün Sepete Ekli' outline small onclik={() => { }} /> </div>
+                  <div> <Button text='Ürün Sepete Ekli' outline small onclik={() => router.push("/cart")} /> </div>
 
                 </> : <>
                   <Counter cardProduct={cardProduct} increaseFunc={increaseFunc} decreaseFunc={decreaseFunc} />
@@ -115,7 +118,7 @@ export default function DetailClient({ product }: { product: any }) {
 
           </div>
         </div>
-        <Heading text={"Yorumlar"} /> <div>  </div>
+        <Heading text={"Yorumlar"} /> 
         <div>
           {
             //prduct yorumlarını Comment props olarak gonderiyor

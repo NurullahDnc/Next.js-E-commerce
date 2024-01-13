@@ -2,6 +2,7 @@ import { RxAvatar } from 'react-icons/rx'
 import React from 'react'
 import { Avatar } from '@mui/material'
 
+//ürün yorumu
 export default function Comment({prd}: {prd:any}) {
   return (
     <div className='border w-full md:w-2/3 mt-5 p-3 rounded-md'>

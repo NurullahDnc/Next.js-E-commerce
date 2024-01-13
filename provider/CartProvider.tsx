@@ -1,7 +1,7 @@
 import { CardContextProvider } from '@/hooks/UseCart'; 
 import React from 'react'
 
-//sarmalama islemi yapıcaz, tip belirlemesi yaptık
+//context sarmalama islemi yapıcaz, tip belirlemesi yaptık
 const CartProvider = ({children}: {children:React.ReactNode}) => {
   return (
 
