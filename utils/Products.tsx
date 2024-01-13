@@ -8,7 +8,30 @@ export const products = [
       category: "Phone",
       inStock: true,
       image: "https://img.freepik.com/free-photo/tech-device-with-nature-background_23-2150470431.jpg?w=740&t=st=1704823434~exp=1704824034~hmac=82a5504b4d7f4b469ebf56f81a99d0af253fac3890c89fa3eb19a9e6b7d956a6",    
-      reviews: [],
+      reviews: [
+        {
+          id: "6499b4887402b0efd394d8f3",
+          userId: "6499b184b0e9a8c8709821d3",
+          productId: "648437b38c44d52b9542e340",
+          rating: 2,
+          comment:
+            "Çok güzel bir ürün, tavsiye ederim.",
+          createdDate: "2023-06-26T15:53:44.483Z",
+          user: {
+            id: "6499b184b0e9a8c8709821d3",
+            name: "Nurullah Dinc",
+            email: "example1@gmail.com",
+            emailVerified: null,
+            image:
+            "https://img.freepik.com/free-photo/tech-device-with-nature-background_23-2150470431.jpg?w=740&t=st=1704823434~exp=1704824034~hmac=82a5504b4d7f4b469ebf56f81a99d0af253fac3890c89fa3eb19a9e6b7d956a6",
+            hashedPassword: null,
+            createdAt: "2023-06-26T15:40:52.558Z",
+            updatedAt: "2023-06-26T15:40:52.558Z",
+            role: "USER",
+          },
+        },
+        
+      ],
     },
     {
       id: "64a654595491b8e73a351e9b",
@@ -150,6 +173,8 @@ export const products = [
       category: "Watch",
       inStock: true,
       image: "https://img.freepik.com/free-photo/tech-device-with-nature-background_23-2150470431.jpg?w=740&t=st=1704823434~exp=1704824034~hmac=82a5504b4d7f4b469ebf56f81a99d0af253fac3890c89fa3eb19a9e6b7d956a6",    
-      reviews: [],
+      reviews: [
+
+      ],
     },
   ];
