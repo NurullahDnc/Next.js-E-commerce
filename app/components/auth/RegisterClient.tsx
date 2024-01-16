@@ -7,17 +7,49 @@ import Heading from '../general/Heading'
 import Button from '../general/Button'
 import { FaGoogle } from "react-icons/fa";
 import Link from 'next/link'
+import axios from 'axios'
+import toast from 'react-hot-toast'
+import { signIn } from 'next-auth/react'
+import { redirect } from 'next/dist/server/api-utils'
+import { useRouter } from 'next/navigation'
 
 
 //register - "react-hook-form" kutuphanesi kulanıldı
 const RegisterClient = () => {
+    
+    const router = useRouter();
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
       } = useForm<FieldValues>()
-      const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data)
+      const onSubmit: SubmitHandler<FieldValues> = (data) => {
+
+        //http istegi atıyoruz, data'yı gonderiyoruz
+        axios.post("/api/register", data).then(()=>{
+            toast.success("kulanıcı olusturuldu");
+
+            //signIn giris yapacak, tanımladıgımız credentials'e kulanıcı bilgilerini gonderiyoruz
+            signIn("credentials",{
+                email: data.email,
+                password: data.password,
+                redirect: false
+            }).then((callback)=>{
+                //istek olumu ise islemleri yap, erros donerse, pages/api/auth tanımladıgımız errorları yazdır
+                if(callback?.ok){
+                    toast.success("giriş basarılı");
+                    router.push("/cart");
+                    router.refresh();
+                }
+
+                if (callback?.error) {
+                    toast.error(callback.error);
+                }
+            })
+
+        })
+      }
     
   return (
     <AuthContainer>

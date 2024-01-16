@@ -7,10 +7,15 @@ import Heading from '../general/Heading'
 import Button from '../general/Button'
 import { FaGoogle } from "react-icons/fa";
 import Link from 'next/link'
+import { signIn } from 'next-auth/react'
+import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
 
 //register - "react-hook-form" kutuphanesi kulanıldı
 const LoginClient = () => {
+
+    const router = useRouter();
     //kutuphane yapısı
     const {
         register,
@@ -18,7 +23,24 @@ const LoginClient = () => {
         watch,
         formState: { errors },
       } = useForm<FieldValues>()
-      const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data)
+      const onSubmit: SubmitHandler<FieldValues> = (data) => {
+        signIn("credentials",{
+            //credentials'a tum data'yı don
+            ...data,
+            redirect: false
+        }).then((callback)=>{
+             //istek olumu ise islemleri yap, erros donerse, pages/api/auth tanımladıgımız errorları yazdır
+             if(callback?.ok){
+                toast.success("giriş basarılı");
+                router.push("/cart");
+                router.refresh();
+            }
+
+            if (callback?.error) {
+                toast.error(callback.error);
+            }
+        })
+      }
     
   return (
     <AuthContainer>
