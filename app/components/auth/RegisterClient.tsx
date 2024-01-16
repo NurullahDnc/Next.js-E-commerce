@@ -56,8 +56,8 @@ const RegisterClient = () => {
       <div className='w-full md:w-[500px] p-3 shadow-lg rounded-md '>
         <Heading text='Register' center />
         <Input id="name" placeholder='name' type='text' register={register} required errors={errors}  />
-        <Input id="Email" placeholder='Email' type='text' register={register} required errors={errors}  />
-        <Input id="Password" placeholder='Password' type='Password' register={register} required errors={errors}  />
+        <Input id="email" placeholder='Email' type='text' register={register} required errors={errors}  />
+        <Input id="password" placeholder='Password' type='Password' register={register} required errors={errors}  />
         <Button onClick={ handleSubmit(onSubmit)} text=' Kayıt ol' />
         <div> <Link className='flex justify-center my-3 underline' href={"/login"}>Hesabım Var</Link> </div>
         <div className='text-center font-bold text-2xl my-3'>QR</div>
