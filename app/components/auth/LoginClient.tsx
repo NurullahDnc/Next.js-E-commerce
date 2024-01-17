@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form"
 import AuthContainer from '../containers/AuthContainer'
 import Input from '../general/Input'
@@ -10,10 +10,14 @@ import Link from 'next/link'
 import { signIn } from 'next-auth/react'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
+import { User } from '@prisma/client'
 
+interface LoginClientProps{
+  currentUser: User | null | undefined
+}
 
 //register - "react-hook-form" kutuphanesi kulanıldı
-const LoginClient = () => {
+const LoginClient:React.FC<LoginClientProps> = (currentUser) => {
 
     const router = useRouter();
     //kutuphane yapısı
@@ -41,6 +45,12 @@ const LoginClient = () => {
             }
         })
       }
+
+      useEffect(()=>{
+        if (currentUser) {
+          router.push("/cart")
+        }
+      },[])
     
   return (
     <AuthContainer>

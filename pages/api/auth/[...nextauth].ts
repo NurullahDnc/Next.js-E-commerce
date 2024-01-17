@@ -24,6 +24,8 @@ export const authOptions: AuthOptions = {
         email: { label: "email", type: "text"},
         password: {  label: "password", type: "password" }
       },
+      
+      //kulanıcı giris islemini kontol et
       async authorize(credentials, req) {
 
           //credentials icerisinde email ve password bulamazsan hata don
