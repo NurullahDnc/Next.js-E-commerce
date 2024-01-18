@@ -1,4 +1,4 @@
-//giris yapan kulanıcının bilgilerini tutacak, tum sayfada tanımlanacak
+//? giris yapan kulanıcının bilgilerini tutacak, tum sayfada tanımlanacak
 
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";

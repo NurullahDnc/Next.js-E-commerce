@@ -17,7 +17,7 @@ interface LoginClientProps{
 }
 
 //register - "react-hook-form" kutuphanesi kulanıldı
-const LoginClient:React.FC<LoginClientProps> = (currentUser) => {
+const LoginClient:React.FC<LoginClientProps> = ({currentUser}) => {
 
     const router = useRouter();
     //kutuphane yapısı

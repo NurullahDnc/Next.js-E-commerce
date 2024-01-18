@@ -17,8 +17,8 @@ const  User:React.FC<userProps> =({currentUser})=> {
   
   //cıkıs islemi
   const menuFunc =(type:any)=>{
+    setOpenMenu(false)
       if (type == "logout") {
-        setOpenMenu(false)
         router.push("/login")
         signOut()
       }
@@ -50,7 +50,7 @@ const  User:React.FC<userProps> =({currentUser})=> {
                 currentUser? (
 
                   <div>
-                      <div className='cursor-pointer'>Admin</div>
+                      <div onClick={()=> router.push("/admin")} className='cursor-pointer'>Admin</div>
                       <div onClick={()=> menuFunc("logout")} className='cursor-pointer' >logout</div>
                   </div> ) : (
                 

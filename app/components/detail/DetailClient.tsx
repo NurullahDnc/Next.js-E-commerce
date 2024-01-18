@@ -103,13 +103,13 @@ export default function DetailClient({ product }: { product: any }) {
               {/*ürün sepet kontrolu yukarıda yapıldı, varsa buttonu degistir */}
               {
                 displayButton ? <>
-                  <div> <Button text='Ürün Sepete Ekli' outline small onclik={() => router.push("/cart")} /> </div>
+                  <div> <Button text='Ürün Sepete Ekli' outline small onClick={() => router.push("/cart")} /> </div>
 
                 </> : <>
                   <Counter cardProduct={cardProduct} increaseFunc={increaseFunc} decreaseFunc={decreaseFunc} />
 
                   {/*buttona tıklandıgında hooks. klasor icerisinde addtocart func. calıstır ve urunleri gonder */}
-                  <div> <Button text='Sepete Ekle' small onclik={() => addToBasket(cardProduct)} /> </div>
+                  <div> <Button text='Sepete Ekle' small onClick={() => addToBasket(cardProduct)} /> </div>
 
                 </>
               }

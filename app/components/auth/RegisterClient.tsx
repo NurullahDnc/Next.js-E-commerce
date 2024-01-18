@@ -71,7 +71,7 @@ const RegisterClient:React.FC<RegisterClientProps> = ({currentUser}) => {
         <Button onClick={ handleSubmit(onSubmit)} text=' Kayıt ol' />
         <div> <Link className='flex justify-center my-3 underline' href={"/login"}>Hesabım Var</Link> </div>
         <div className='text-center font-bold text-2xl my-3'>QR</div>
-        <Button onClick={()=>{}} outline icon={FaGoogle} text='google ile kayıt ol' />
+        <Button onClick={()=> signIn("google") } outline icon={FaGoogle} text='google ile kayıt ol' />
       </div>
     </AuthContainer>
   )

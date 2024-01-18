@@ -7,6 +7,7 @@ generator client {
   provider        = "prisma-client-js"
 }
 
+//veri tabanında tablo baslıkları, tablo ozelikleri?
 model Account {
   id                 String     @id @default(auto()) @map("_id") @db.ObjectId
   userId             String     @db.ObjectId
@@ -26,7 +27,33 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
- 
+model Product{
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  description   String
+  price         Float
+  brand         String
+  category      String
+  inStock       Boolean
+  image         String
+  reviews       Review[]
+}
+
+model Review{
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String    @db.ObjectId
+  productId     String    @db.ObjectId
+  rating        Int
+  comment       String
+  createdDate   DateTime @default(now())
+
+  //relation = product ile iliskilendir
+  product Product @relation(fields: [productId], references: [id])
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+
+}
 
 model User {
   id            String     @id @default(auto()) @map("_id") @db.ObjectId
@@ -39,7 +66,10 @@ model User {
   updateAt      DateTime @updatedAt
   role Role @default(USER)
   accounts      Account[]
+  review        Review[]
 }
+
+
 
 enum Role{
     USER 
