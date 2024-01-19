@@ -1,4 +1,6 @@
-//? giris yapan kulanıcının bilgilerini tutacak, tum sayfada tanımlanacak
+
+//
+//? giris yapan kulanıcının bilgilerini tutacak, istedigimiz tum sayfada tanımlanacak
 
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
@@ -7,7 +9,7 @@ import prisma from '@/libs/prismadb'
 
 //asenkron func.
 export async function getSession() {
-    //olusturdugumuz getServerSession icerisindeki aauthoptions'ları return et
+    //olusturdugumuz getServerSession icerisindeki authoptions'ları return et
     return await getServerSession(authOptions);
 }
 
