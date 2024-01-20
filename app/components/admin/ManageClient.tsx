@@ -75,7 +75,15 @@ const ManageClient:React.FC<ManageClientProps> = ({products}) => {
             }
         }
         await handleDeleteImg();
-        
+        //istek atıyoruz delete: id gore
+        axios.delete(`/api/product/${id}`)
+        .then(() => {
+          toast.success('sildirme işlemi basarılı')
+          router.refresh();
+        })
+        .catch((error: any) => {
+            console.log(error)
+        })
     }, [])
   return (
     //*material-ui  kutuphanesi table kulanıldı
