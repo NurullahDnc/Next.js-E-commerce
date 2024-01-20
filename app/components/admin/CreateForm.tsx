@@ -15,13 +15,17 @@ import { promises } from 'dns';
 import { rejects } from 'assert';
 import { resolve } from 'path';
 import toast from 'react-hot-toast';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { log } from 'console';
 
 
 
 export default function CreateForm() {
 
     const [img, setImg] = useState<File | null>(null)
-    const [uploadedImg, setUploadedImg] = useState<string | null>(null)
+    // const [uploadedImg, setUploadedImg] = useState<string | null>(null)
+    const route = useRouter();
 
     const categoryList = [
         {
@@ -49,6 +53,7 @@ export default function CreateForm() {
 
     ]
 
+    // React Hook Form kütüphanesi
     const {
         register,
         handleSubmit,
@@ -67,7 +72,7 @@ export default function CreateForm() {
         }
     })
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-        console.log(data);
+        let uploadedImg;
 
         const handleChange = async () => {
             toast.success("yuklmeme basarılı")
@@ -101,11 +106,13 @@ export default function CreateForm() {
 
                             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                                 console.log('File available at', downloadURL);
-                                setUploadedImg(downloadURL);
+                                //downloadURL resimi degiskene at
+                                uploadedImg =downloadURL;
+                                //hata veririse propmis onunde <void>
+                                resolve()
 
                             });
-                            //hata veririse propmis onunde <void>
-                            resolve()
+                            
                         }
                     );
                 })
@@ -121,7 +128,17 @@ export default function CreateForm() {
         await handleChange();
 
         //tum data ve image'leri new data at
-        let newData ={ ...data, Image:uploadedImg }
+        let newData ={ ...data, image: uploadedImg }
+        console.log("uploadedImg", uploadedImg);
+        
+        //*product post istegi at, newData'yı gonder.
+        axios.post("/api/product", newData )
+        .then((res)=>{
+            toast.success("yukleme basarılı :)")
+            route.refresh();
+        }).catch((err)=>{
+            toast.error("yukleme basarısız !!!")
+        })
 
         console.log(newData, "newData");
 
@@ -171,7 +188,7 @@ export default function CreateForm() {
             <input onChange={onChangeFunc} type="file" />
 
 
-            {/* <InputFile fileFunc={() => onChangeFunc} /> */}
+            {/* <InputFile fileFunc={()=> onChangeFunc} type="file" /> */}
             <Button onClick={handleSubmit(onSubmit)} text='Ürün Oluştur' />
 
         </div>

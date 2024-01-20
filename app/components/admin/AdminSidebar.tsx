@@ -23,6 +23,11 @@ const AdminSidebar = () => {
             url: "/admin/create"
         },
         {
+            name: "ürünler",
+            icons: CiUser,
+            url: "/admin/manage"
+        },
+        {
             name: "siparisler",
             icons: CiUser,
             url: "/admin/order"
