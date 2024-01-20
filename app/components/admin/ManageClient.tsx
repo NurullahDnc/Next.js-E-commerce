@@ -22,6 +22,7 @@ const ManageClient:React.FC<ManageClientProps> = ({products}) => {
         return {
             id: product.id,
             name: product.name,
+            description: product.description,
             price: product.price,
             category: product.category,
             brand: product.brand,
@@ -33,11 +34,12 @@ const ManageClient:React.FC<ManageClientProps> = ({products}) => {
 
     //columsn duzenle, id= bicimlndir
     const columns: GridColDef[] = [
-        {field: "id", headerName: "ID", width: 200},
+        {field: "id", headerName: "ID", width: 150},
         {field: "name", headerName: "Name", width: 150},
-        {field: "price", headerName: "Price", width: 100},
-        {field: "category", headerName: "Category", width: 100},
-        {field: "brand", headerName: "Brand", width: 100},
+        {field: "description", headerName: "description", width: 250},
+        {field: "price", headerName: "Price", width: 150},
+        {field: "category", headerName: "Category", width: 150},
+        {field: "brand", headerName: "Brand", width: 150},
         {field: "inStock", 
            headerName: "Brand", 
            width: 100,
@@ -67,24 +69,35 @@ const ManageClient:React.FC<ManageClientProps> = ({products}) => {
         toast.success('sildirme işlemi icin bekleyin...')
         const handleDeleteImg = async() => {
             try {
-                //storage firebaseApp den geliyor, 
+                //storage firebaseApp den geliyor,             // Storage'dan seçilen fotoğrafı silme
                 const imageRef = ref(storage, image)
                 await deleteObject(imageRef)
+                // console.log(imageRef);
+
             } catch (error) {
-               return console.log("bir hata mevcut", error) 
+            //    return console.log("bir hata mevcut", error) 
+               toast.error("bir hata mevcut gorsel ")
             }
+            // console.log(image,"params.row.image");
+
+            
         }
         await handleDeleteImg();
-        //istek atıyoruz delete: id gore
+        //istek atıyoruz delete: id gore     // Ürünü silme için server tarafına DELETE isteği gönderme
         axios.delete(`/api/product/${id}`)
         .then(() => {
           toast.success('sildirme işlemi basarılı')
           router.refresh();
         })
         .catch((error: any) => {
-            console.log(error)
+            toast.error("ürün silinirken bir hata Oluştu")
+            
         })
+        // console.log(image,"params.row.image");
+
     }, [])
+
+    
   return (
     //*material-ui  kutuphanesi table kulanıldı
 

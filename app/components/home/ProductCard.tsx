@@ -8,6 +8,9 @@ import Raiting from "../general/ProductRating"
 const ProductCard = ({product}: {product: any}) => {
   const router = useRouter()
 
+  // console.log(product);
+  
+
   return (
     <div onClick={()=> router.push(`product/${product.id}`)} className="min-w-[230px] max-w-[240px] border p-2 rounded-md cursor-pointer shadow-lg flex flex-1 flex-col  ">
 
@@ -18,7 +21,7 @@ const ProductCard = ({product}: {product: any}) => {
         <div> {TextClip(product.name)} </div>
           <Raiting ratings={product}  />
         <div className="text-red-500 font-bold text-lg md:text-xl "> {product.price} TL </div>
-      </div>
+      </div> 
       
     </div>
   ) 

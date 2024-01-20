@@ -1,20 +1,21 @@
 import { getCurrentUser } from "@/app/actions/getCurrentUser";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import prisma from '@/libs/prismadb'
+import toast from "react-hot-toast";
 
-
-export default async function Delete(
+//* ürünü silme istek atıyoruz
+export  async function DELETE(
     //parametreler,    ,params altından id gelecek 
     request: Request, {params} : {params: {id : string}}
 
 ) {
-    const currentUser = await getCurrentUser();
+    try {
+        const currentUser = await getCurrentUser();
 
     //kulancı kontrolu
-    if (!currentUser || currentUser.role !== "ADMIN") {
+   if(!currentUser || currentUser.role !== "ADMIN"){
         return NextResponse.error()
     }
-
     //prizma icerisinde product'larda delete iselemi
     const product = await prisma.product.delete({
         //disarıdan gelen id gore
@@ -24,4 +25,7 @@ export default async function Delete(
     })
 
     return NextResponse.json(product)
+    } catch (error) {
+        toast.success("ürün silinmedi")
+    }
 }

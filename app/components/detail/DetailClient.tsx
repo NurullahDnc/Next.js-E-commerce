@@ -27,6 +27,7 @@ export type CardProductProps = {
 //productId'den geliyor product parametresi
 export default function DetailClient({ product }: { product: any }) {
   const router = useRouter();
+  
 
   //usecart- usecontext 
   const { productCartQty, addToBasket, cartPrdcts } = UseCart();
@@ -47,7 +48,6 @@ export default function DetailClient({ product }: { product: any }) {
       inStock: product.inStock
     }
   );
-    console.log(cardProduct,"cardProduct");
     
   //sayfa yuklendiginde ürün sepet kontrolu
   useEffect(() => {
@@ -59,7 +59,6 @@ export default function DetailClient({ product }: { product: any }) {
     }
   }, [cartPrdcts])
 
-  console.log(cartPrdcts, "cartPrdcts");
 
 
   //detail de adet artırma
@@ -78,7 +77,6 @@ export default function DetailClient({ product }: { product: any }) {
 
   }
 
-  console.log(product);
   return (
     <div className='my-10 '>
       <PageContainers>
@@ -90,7 +88,6 @@ export default function DetailClient({ product }: { product: any }) {
             <div className='font-bold'> {product?.name} </div>
             <div> {product?.category} </div>
             <div> <ProductRating ratings={product}  /> </div>
-            <div className=''> {TextClip(product?.description) } </div>
             <div className='flex'>
               <div className='pr-3'>Stok Durumu:  </div>
               {

@@ -1,26 +1,22 @@
+import getProductsId from '@/app/actions/getProductId'
 import DetailClient from '@/app/components/detail/DetailClient'
-import {products} from '@/utils/Products'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 type DetailProps = {
     productId? : string
 }
 
-//params ile url'den gelen ıd alıyoruz
+const Detail = async ({ params }: { params: DetailProps }) => {
+    const { productId } = params;
 
-const Detail = ({params}: {params: DetailProps}) => {
-  //paramsdan gelen ıd productıd at
-  const {productId} = params
+    // Func urun ıd goder urun ozeliklerini donuyoer
+    const product = await getProductsId({ productId });
 
-  //products ile url den gelen id esit olan product godner
-  const product = products.find(product => product.id == productId  )
-
-  return (
-    <div>
-      <DetailClient product={product} />
-    </div>
-  )
+    return (
+        <div>
+            <DetailClient product={product} />
+        </div>
+    )
 }
 
 export default Detail
-

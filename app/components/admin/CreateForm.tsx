@@ -78,18 +78,21 @@ export default function CreateForm() {
             toast.success("yuklmeme basarılı")
             //*firebase kutuphanesi kulanıldı
             try {
+                //firebase de radom degerler atıyor image name
                 const storage = getStorage(firebaseApp);
-                const storageRef = ref(storage, 'images/shop.jpg');
+                const randomString = Math.random().toString(36).substring(7);
+                const storageRef = ref(storage, `images/${randomString}`);
 
                 const uploadTask = uploadBytesResumable(storageRef, img);
 
-                await new Promise((rejects, resolve) => {
+                await new Promise<void>((resolve, rejects) => {
                     uploadTask.on('state_changed',
                         (snapshot) => {
                             // Observe state change events such as progress, pause, and resume
                             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                             console.log('Upload is ' + progress + '% done');
+                            toast.success( progress + '% Yükleniyor')
                             switch (snapshot.state) {
                                 case 'paused':
                                     console.log('Upload is paused');

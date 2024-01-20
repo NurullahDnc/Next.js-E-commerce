@@ -30,7 +30,7 @@ const  User:React.FC<userProps> =({currentUser})=> {
       }
   }
 
-  console.log(currentUser,"currentUser");
+  // console.log(currentUser,"currentUser");
   
 
   return (
