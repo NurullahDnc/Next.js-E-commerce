@@ -3,6 +3,7 @@ import Heading from '../general/Heading'
 import ProductCard from './ProductCard'
 import getProduct from '@/app/actions/getProduct';
 import getProductsId from '@/app/actions/getProductId';
+import Category from '@/app/category/[categoryId]/page';
 
 
 const Products = async () => {
@@ -22,6 +23,8 @@ const Products = async () => {
                 <ProductCard key={product.id} product={product} />
             ))
         }
+
+       
       </div>
     </div>
   )

@@ -5,6 +5,7 @@ import NavBar from './components/navbar/NavBar'
 import Footer from './components/footer/Footer'
 import CartProvider from '@/provider/CartProvider'
 import { Toaster } from 'react-hot-toast'
+import Category from './components/home/Category'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -29,6 +30,7 @@ export default function RootLayout({
         <CartProvider>
           <div className='flex flex-col min-h-screen'>
             <NavBar />
+            <Category />
 
             <main className='flex-grow '>{children}  </main>
             
