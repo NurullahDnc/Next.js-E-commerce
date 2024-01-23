@@ -23,7 +23,7 @@ export default function Category() {
       {
         categoryList.map((category, index)=>(
           <div onClick={()=> router.push(`/category/${category.name}/`)} 
-          className='border text-[10px] md:text-lg text-black rounded-full min-w-[120px] px-4 mb-2 py-1 justify-center items-center flex cursor-pointer ' 
+          className='flex border text-[9px] md:text-lg text-blacks rounded-full min-w-[120px] px-4 mb-2 py-1 justify-center items-center  cursor-pointer ' 
           key={index}>
              {category.name} 
           </div>

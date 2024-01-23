@@ -41,22 +41,22 @@ const  User:React.FC<userProps> =({currentUser})=> {
             currentUser?<div> {currentUser.name} </div>: <div>Kulanıcı</div>
           }
       </div>
-      <div className='absolute top-10 bg-red-600 right-0 w-[100px] text-center rounded-md'>
+      <div className='absolute top-10 bg-blacks right-0 w-[100px] text-center rounded-md'>
         {
           //openMenu true ise
           openMenu &&(
-            <div className='p-1'>
+            <div className='p-1 text-yellows'>
               {
                 currentUser? (
 
-                  <div className=''>
-                      <div onClick={()=> router.push("/admin")} className='cursor-pointer'>Admin</div>
-                      <div onClick={()=> menuFunc("logout")} className='cursor-pointer' >logout</div>
+                  <div >
+                      <div onClick={()=> router.push("/admin")} className='cursor-pointer py-2'>Admin</div>
+                      <div onClick={()=> menuFunc("logout")} className='cursor-pointer' >Cıkıs Yap</div>
                   </div> ) : (
                 
-                  <div>
-                      <div onClick={()=> menuFunc("register")} className='cursor-pointer'>register</div>
-                      <div onClick={()=> menuFunc("login")} className='cursor-pointer'>login</div>
+                  <div >
+                      <div onClick={()=> menuFunc("register")} className='cursor-pointer py-2'>Kayıt ol</div>
+                      <div onClick={()=> menuFunc("login")} className='cursor-pointer'>Giris Yap</div>
                   </div>
                 )
               }

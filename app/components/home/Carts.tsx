@@ -29,7 +29,7 @@ export default function Cart() {
     <div >
       <Heading text="Daha Fazlasını Keşfet" />
 
-      <div className="w-[100%] flex h-[150px] md:h-[500px] ">
+      <div className="w-[100%] flex justify-center h-[150px] md:h-[500px] ">
         {cartList.map((cart) => (
           <Cartİmage text={cart.text} image={cart.image} />
         ))}

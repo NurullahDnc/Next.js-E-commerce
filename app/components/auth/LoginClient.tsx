@@ -56,8 +56,8 @@ const LoginClient:React.FC<LoginClientProps> = ({currentUser}) => {
     <AuthContainer>
       <div className='w-full md:w-[500px] my-5 p-3 shadow-lg rounded-md '>
         <Heading text='Login' center />
-        <Input id="Email" placeholder='Email' type='text' register={register} required errors={errors}  />
-        <Input id="Password" placeholder='Password' type='Password' register={register} required errors={errors}  />
+        <Input placeholder="Email" type="text" id="email" register={register} errors={errors} required/>
+        <Input placeholder="Parola" type="password" id="password" register={register} errors={errors} required/>
         <Button onClick={ handleSubmit(onSubmit)} text='Giriş yap' />
         <div> <Link className='flex justify-center my-3 underline' href={"/register"}>Hesabım Yok</Link> </div>
         <div className='text-center font-bold text-2xl my-3'>QR</div>

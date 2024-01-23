@@ -13,7 +13,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({ id, register, label }) => {
     <div className=' flex items-center my-2 gap-2'>
       {/* CheckBox içeriği buraya gelecek */}
       <input className='size-4' type="checkbox" id={id} {...register(id)} />
-      <label className='text-slate-500' htmlFor={id}>{label}</label>
+      <label className='text-grays' htmlFor={id}>{label}</label>
     </div>
   );
 };

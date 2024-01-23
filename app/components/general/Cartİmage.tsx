@@ -15,7 +15,7 @@ const Cartİmage :React.FC<CartİmageProps> = ({image, text}) => {
       </div>
       <div className=' flex justify-center items-center ' >
         <button 
-        className='w-[65px] md:w-[150px] text-[8px] md:text-lg bottom-2 md:bottom-5 absolute h-[20px] md:h-[40px] bg-black text-whites flex justify-center items-center rounded-full ' >
+        className='w-[65px] md:w-[150px] text-[8px] md:text-lg bottom-2 md:bottom-5 absolute h-[20px] md:h-[40px] bg-blacks text-yellows flex justify-center items-center rounded-full ' >
           {text}
         </button>
 

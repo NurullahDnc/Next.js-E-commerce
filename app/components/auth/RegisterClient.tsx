@@ -44,7 +44,7 @@ const RegisterClient:React.FC<RegisterClientProps> = ({currentUser}) => {
                 //istek olumu ise islemleri yap, erros donerse, pages/api/auth tanımladıgımız errorları yazdır
                 if(callback?.ok){
                     toast.success("giriş basarılı");
-                    router.push("/cart");
+                    router.push("/");
                     router.refresh();
                 }
 

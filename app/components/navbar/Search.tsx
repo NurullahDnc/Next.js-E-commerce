@@ -6,7 +6,7 @@ export default function Search() {
   return (
     <div className='md:flex hidden items-center justify-center '>
         <input 
-          className=' px-1 h-8 border-none rounded-md outline-none text-black ' 
+          className=' px-1 h-8 border-none rounded-md outline-none text-blacks ' 
           type="text" 
           placeholder='Arama Yap...' />
 

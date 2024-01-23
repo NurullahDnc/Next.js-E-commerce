@@ -92,12 +92,12 @@ export default function DetailClient({ product }: { product: any }) {
 
           <div className='w-full md:w-2/4 px-3 space-y-3 ml-0 md:ml-10 '>
             <div className='font-bold'> {product?.name} </div>
-            <div> {product?.category} </div>
+            <div> {product?.brand} </div>
             <div> <ProductRating ratings={product}  /> </div>
             <div className='flex'>
               <div className='pr-3'>Stok Durumu:  </div>
               {
-                product.inStock ? <div className='text-green-600'>Ürün Stokta mevcut</div> : <div className='text-red-400'>Ürün Stokta Mevcut Değil</div>
+                product.inStock ? <div className='text-greens'>Ürün Stokta mevcut</div> : <div className='text-reds'>Ürün Stokta Mevcut Değil</div>
               }
             </div>
             <div className="text-reds font-bold text-lg md:text-2xl "> {product.price} <span className="text-[18px]">TL</span> </div>

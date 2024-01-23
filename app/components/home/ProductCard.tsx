@@ -20,7 +20,7 @@ const ProductCard = ({product}: {product: any}) => {
       </div>
       <div className="space-y-2 p-2 ">
         <div className="font-my-custom-weight min-h-[52px] text-[14px] md:text-lg"> {TextClip(product.name)} </div>
-        <div className=" text-[11px] md:text-sm text-grays "> {TextClip(product.category)} </div>
+        <div className=" text-[11px] md:text-sm text-grays "> {TextClip(product.brand)} </div>
           <Raiting ratings={product}  />
         <div className="text-reds font-bold text-sm md:text-lg "> {product.price} <span className="text-[18px]">TL</span> </div>
       </div> 

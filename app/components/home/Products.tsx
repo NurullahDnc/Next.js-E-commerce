@@ -16,7 +16,7 @@ const Products = async () => {
   return (
     <div className=''>
       <Heading text='Tüm Ürünler' />
-      <div className='flex max-h-[1300px] md:max-h-[795px] overflow-hidden  gap-3 md:gap-6 flex-wrap mx-0 md:mx-7'>
+      <div className='flex max-h-[1300px] md:max-h-[795px] overflow-hidden justify-center gap-3 md:gap-6 flex-wrap mx-0 md:mx-7'>
         {
             //utils altında products map ile don, ProductCart props ile gonder
             getProducts.map(product => (
@@ -27,7 +27,7 @@ const Products = async () => {
        
       </div>
       <div className=' flex justify-center items-center ' >
-        <button className=' w-[150px] text-sm mt-7 md:w-[200px] h-[45px] bg-blacks text-whites flex justify-center items-center rounded-md ' >
+        <button className=' w-[150px] text-sm mt-7 md:w-[200px] h-[45px] bg-blacks text-yellows flex justify-center items-center rounded-md ' >
         Daha Fazlası
         </button>
 

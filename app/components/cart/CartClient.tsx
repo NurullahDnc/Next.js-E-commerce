@@ -44,7 +44,7 @@ const CartClient = () => {
                                     <Image src={product.image} alt="" width={100} height={100} />
                                 </div>
                                 <h1 className='w-1/6 '> {TextClip(product.name)} </h1>
-                                <p className='w-1/6 '> {product.category} phone </p>
+                                <p className='w-1/6 '> {product?.brand} phone </p>
 
                                 <p className='w-1/6 flex justify-center'> 
                                     <Counter cardProduct={product} increaseFunc={()=> addToBasketIncrease(product)} decreaseFunc={()=> addToBasketDecrease(product)} /> 

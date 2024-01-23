@@ -3,7 +3,7 @@ import React from 'react';
 export default function ContactUs() {
   return (
     <div className='flex justify-center my-10 items-center'>
-      <div className='w-[90%] max-h-[300px] relative bg-black '>
+      <div className='w-[90%] max-h-[300px] relative bg-blacks '>
         <div>
           <img className='max-h-[300px] object-cover w-[100%]  ' src="./images/3-al-2-ode.webp" alt="" />
         </div>

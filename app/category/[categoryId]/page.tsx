@@ -16,26 +16,24 @@ const CategoryProduct= async ({ params }: { params: any }) => {
   const getProducts = await  getProduct({category: params.categoryId, search: ""});
 
   return (
-    <div>
-      
+    <div>  
       <Heading text={` ${params.categoryId} Kategorisi`} />
-      <div className='flex gap-3 md:gap-10 flex-wrap justify-center px-3 md:px-10'>
-        {
-            //utils altında products map ile don, ProductCart props ile gonder
-            getProducts.map(product => (
-                <CategoryPage key={product.id}   product={product} />
-            ))
-        }
+      <div className='flex gap-3 md:gap-10 flex-wrap  px-3 md:px-10'>
 
-       
+      { /*kategori'de ürün kontrolu*/ }      
+      {getProducts.length > 0 ? (
+          getProducts.map((product: any) => (
+            <div className='flex' key={product.id}>
+              <CategoryPage product={product} />
+            </div>
+          ))
+        ) : (
+          <div>
+            <h1 className='my-10 text-sm md:text-xl '>Bü Kategoride Ürünümüz Bulunmamaktadır</h1>
+          </div>
+        )}
       </div>
-        
-      
-
-      
     </div>
-
-
   )
 }
 

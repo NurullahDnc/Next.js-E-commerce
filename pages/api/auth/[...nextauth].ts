@@ -7,11 +7,8 @@ import prisma from '@/libs/prismadb'
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt'
 
-//GoogleProvider = google icin giris 
-//CredentialsProvider = giris islemleri ici, kontol
 
-
-export const authOptions: AuthOptions = {
+export const authOptions : AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -24,51 +21,47 @@ export const authOptions: AuthOptions = {
         email: { label: "email", type: "text"},
         password: {  label: "password", type: "password" }
       },
-      //kulanıcı giris islemini kontol et
       async authorize(credentials, req) {
-
-          //credentials icerisinde email ve password bulamazsan hata don
+        try {
           if (!credentials?.email || !credentials.password) {
-            throw new Error("email veya password gecersiz")
+            throw new Error('Geçersiz e-posta ya da parola...');
           }
-
-          //prisma uzerinde email'e gore user'ları bulucaz 
+      
           const user = await prisma.user.findUnique({
-            where:{
-              //credentials icerisinde email?
+            where: {
               email: credentials.email
             }
-          })
-
-          //user bulamazsan, user uzerine boyle yapı yoksa 
+          });
+      
           if (!user || !user.hashedpassword) {
-            throw new Error("kulanıcı bulunamadı") 
+            throw new Error('Kullanıcı bulunamadı veya parola bulunamadı...');
           }
-
-          //user ile disarıdan gonderdigimiz sifre esit ise compare olacak, degil ise hata donecek "bcrypt" kutuphanesi kulanıldı
-          const comparePassword  =await bcrypt.compare(credentials.password, user.hashedpassword)
-
-          //compare ile karsıalstırdık, gonderdigimiz sife ile veritabanındaki sifre uyusmaz ise hata don
+      
+          const comparePassword = await bcrypt.compare(credentials.password, user.hashedpassword);
+      
           if (!comparePassword) {
-            throw new Error("Sifreniz Hatalı") 
+            throw new Error('Yanlış parola...');
           }
-
-          return user
+      
+          return Promise.resolve(user);
+        } catch (error) {
+          console.error("Kimlik doğrulama hatası:", error);
+          throw error;
+        }
       }
+      
     })
+    
   ],
-  pages: {
+  pages : {
     signIn: "/login"
   },
-  debug: process.env.NODE_ENV ==="development",
+  debug: process.env.NODE_ENV === "development",
   session: {
     strategy: "jwt"
   },
   secret:process.env.NEXTAUTH_SECRET
-
 }
 
+
 export default NextAuth(authOptions)
-
-
-//credentials = e-posta ve sifre ile girisleri destekliyor
