@@ -12,8 +12,8 @@ export default function CardCount() {
 
   return (
     <div onClick={()=> router.push("/cart")} className='md:flex hidden relative cursor-pointer'>
-      <SlBasket size="25" />
-      <div className='absolute -top-2 -right-2 text-sm w-5 h-5 bg-red-500 flex justify-center items-center rounded-full'>
+      <SlBasket size="21" />
+      <div className='absolute -top-2 -right-2 text-sm w-4 h-4 bg-reds flex justify-center items-center rounded-full'>
         { cartPrdcts ? <div>{cartPrdcts?.length}</div>: 0 } 
       </div>
     </div>

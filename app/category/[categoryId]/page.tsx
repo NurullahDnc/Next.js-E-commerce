@@ -4,7 +4,7 @@ import getProduct from '@/app/actions/getProduct';
 import getProductsId from '@/app/actions/getProductId';
 import Category from '@/app/components/home/Category';
 import Heading from '@/app/components/general/Heading';
-import CategoryPage from '@/app/components/categoryPage/page';
+import CategoryPage from '@/app/components/categoryCart/page';
 import { CiUser } from "react-icons/ci";
 
 //parmas = url den gelen category alıyor

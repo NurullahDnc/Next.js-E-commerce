@@ -28,30 +28,13 @@ export default function CreateForm() {
     const route = useRouter();
 
     const categoryList = [
-        {
-            name: "Ayakkabı",
-            icon: CiUser
-        },
-        {
-            name: "Bilgisayar",
-            icon: CiUser
-        }, {
-            name: "Telefon",
-            icon: CiUser
-        }, {
-            name: "Mont",
-            icon: CiUser
-        }, {
-            name: "kazak",
-            icon: CiUser
-        }, {
-            name: "bot",
-            icon: CiUser
-        },
-
-
-
-    ]
+        { id: 1, name: 'Ayakkabi', icon: CiUser  },
+        { id: 2, name: 'Tisort', icon: CiUser  },
+        { id: 3, name: 'Sweatshirt', icon: CiUser  },
+        { id: 4, name: 'Ceket-ve-Mont', icon: CiUser  },
+        { id: 5, name: 'Aksesuar', icon: CiUser  },
+        { id: 6, name: 'Esofman-Alti', icon: CiUser  },
+      ];
 
     // React Hook Form kütüphanesi
     const {

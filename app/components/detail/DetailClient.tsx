@@ -27,6 +27,10 @@ export type CardProductProps = {
 //productId'den geliyor product parametresi
 export default function DetailClient({ product }: { product: any }) {
   const router = useRouter();
+
+    const textİndent = {
+      textIndent: '20px',
+    };
   
 
   //usecart- usecontext 
@@ -80,11 +84,13 @@ export default function DetailClient({ product }: { product: any }) {
   return (
     <div className='my-10 '>
       <PageContainers>
-        <div className='block md:flex text-xl'>
-          <div className=' relative md:w-[500px] w-[250px] md:h-[500px] h-[250px] mb-5 md:mb-0 flex-1  '>
-            <Image src={product.image} fill alt="" className='object-cover' />
-          </div>
-          <div className='w-full md:w-2/3 px-3 space-y-3 ml-0 md:ml-10 '>
+        <div className='block md:flex text-xl ' >
+
+        <div className='relative w-full md:w-[250px] md:h-[500px] h-[250px] mb-5 md:mb-0 flex-1'>
+          <Image src={product.image} fill alt="" className='object-contain ' />
+        </div>
+
+          <div className='w-full md:w-2/4 px-3 space-y-3 ml-0 md:ml-10 '>
             <div className='font-bold'> {product?.name} </div>
             <div> {product?.category} </div>
             <div> <ProductRating ratings={product}  /> </div>
@@ -94,9 +100,9 @@ export default function DetailClient({ product }: { product: any }) {
                 product.inStock ? <div className='text-green-600'>Ürün Stokta mevcut</div> : <div className='text-red-400'>Ürün Stokta Mevcut Değil</div>
               }
             </div>
-            <div className='text-red-700'> {product?.price} TL </div>
+            <div className="text-reds font-bold text-lg md:text-2xl "> {product.price} <span className="text-[18px]">TL</span> </div>
 
-            <div className='space-y-3 py-3'>
+            <div className='space-y-6 py-3'>
               {/*ürün sepet kontrolu yukarıda yapıldı, varsa buttonu degistir */}
               {
                 displayButton ? <>
@@ -115,6 +121,14 @@ export default function DetailClient({ product }: { product: any }) {
 
           </div>
         </div>
+        <div className='mb-7'>
+          <Heading text='Açıklama' />
+          <div className='text-[17px] 'style={textİndent}>
+            {product?.description}
+
+          </div>
+        </div>
+        <hr />
         <Heading text={"Yorumlar"} /> 
         <div>
           {

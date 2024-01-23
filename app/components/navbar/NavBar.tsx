@@ -12,11 +12,14 @@ export default async function  NavBar() {
   //kulanıcı bilgilerini al
   const currentUser = await getCurrentUser();
   return (
-    <div className='flex items-center justify-between md:gap-10 px-3 h-16 gap-3 bg-gray-700 text-white '>
+    <div className='flex items-center mt-5 px-12  md:gap-6 h-16 gap-5 bg-blacks text-whites '>
 
         <Logo />
         <Search />
         <CardCount />
+        <div>
+          |
+        </div>
         <User currentUser={currentUser} />
         <HamburgerMenu />
       

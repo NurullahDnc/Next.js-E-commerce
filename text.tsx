@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import getProduct from '@/app/actions/getProduct';
 import Heading from '@/app/components/general/Heading';
-import CategoryPage from '@/app/components/categoryPage/page';
+import CategoryPage from '@/app/components/categoryCart/page';
 import { CiUser } from 'react-icons/ci';
 
 const Products = () => {

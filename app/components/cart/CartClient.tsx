@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 import Image from "next/image";
 import Cart from "@/app/cart/page";
 import Counter from "../general/Counter";
+import TextClip from "@/utils/TextClip";
 
 //sepet comps
 const CartClient = () => {
@@ -20,7 +21,7 @@ const CartClient = () => {
         <div className="flex-1">
             <PageContainers>
                 <div className=' flex flex-1 text-[13px] md:text-[18px] py-5 justify-center items-center text-center border-b-2'>
-                    <div className="w-1/5 flex justify-center" >
+                    {/* <div className="w-1/5 flex justify-center" >
                         İmage
                     </div>
                     <h1 className='w-1/6    '> Name </h1>
@@ -29,20 +30,20 @@ const CartClient = () => {
                     <p className='w-1/6  '> Quantity</p>
                     <p className='w-1/6   '> Price </p>
                     <p className='w-1/6  '> Delete</p>
-
+ */}
 
                 </div>
                 
                 {
                     cartPrdcts?.map(product => (
 
-                        <div key={product.id} className="flex flex-1 ">
+                        <div key={product.id} className="flex flex-1  ">
 
-                            <div className='flex flex-1 my-3 justify-center items-center text-center text-[11px] md:text-[17px]'>
+                            <div className='    flex flex-1 my-3 h-[100px] justify-center items-center text-center text-[9px] md:text-[17px]'>
                                 <div className="w-1/6 flex justify-center" >
                                     <Image src={product.image} alt="" width={100} height={100} />
                                 </div>
-                                <h1 className='w-1/6 '> {product.name} </h1>
+                                <h1 className='w-1/6 '> {TextClip(product.name)} </h1>
                                 <p className='w-1/6 '> {product.category} phone </p>
 
                                 <p className='w-1/6 flex justify-center'> 
@@ -60,9 +61,7 @@ const CartClient = () => {
                     ))
 
                 }
-                <div>
-                    ad
-                </div>
+                 
             </PageContainers>
         </div>
     )

@@ -35,21 +35,21 @@ const  User:React.FC<userProps> =({currentUser})=> {
 
   return (
     <div className=' md:flex hidden relative'>
-      <div onClick={()=> setOpenMenu(!openMenu) } className='flex gap-1 mr-2 cursor-pointer'>
-          <CiUser size="25" />
+      <div onClick={()=> setOpenMenu(!openMenu) } className='flex gap-1 cursor-pointer'>
+          <CiUser size="24" />
           {
-            currentUser?<div> {currentUser.name} </div>: <div>User</div>
+            currentUser?<div> {currentUser.name} </div>: <div>Kulanıcı</div>
           }
       </div>
-      <div className='absolute top-10 shadow-lg  bg-red-900 right-0 w-[150px] rounded-md'>
+      <div className='absolute top-10 bg-red-600 right-0 w-[100px] text-center rounded-md'>
         {
           //openMenu true ise
           openMenu &&(
-            <div className='p-2'>
+            <div className='p-1'>
               {
                 currentUser? (
 
-                  <div>
+                  <div className=''>
                       <div onClick={()=> router.push("/admin")} className='cursor-pointer'>Admin</div>
                       <div onClick={()=> menuFunc("logout")} className='cursor-pointer' >logout</div>
                   </div> ) : (

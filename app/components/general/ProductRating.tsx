@@ -16,7 +16,7 @@ const ProductRating = ({ product, ratings }: RaitingProps) => {
   return (
     <div>
       <div>
-        <Rating name="read-only" value={ProductRating} readOnly />
+        <Rating size='medium' name="read-only" value={ProductRating} readOnly />
       </div>
     </div>
   );
