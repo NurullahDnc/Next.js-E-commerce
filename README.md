@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<div align="center">
+  <a href="https://github.com/github_username/repo_name">
+    <img src="https://raw.githubusercontent.com/enesdmc0/react-country-info/main/images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+<h3 align="center">e-commerces next</h3>
+</div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## About The Project
+ 
+ 
 
-## Learn More
+![Ekran görüntüsü 2024-03-17 205049](https://github.com/NurullahDnc/e-commerces-next.js/assets/150585098/f72dcac5-8fe9-4c03-b043-523def66ca18)
+![Ekran görüntüsü 2024-03-17 205107](https://github.com/NurullahDnc/e-commerces-next.js/assets/150585098/2810a5d6-ab1d-431b-b5bc-edb4da2b82a0)
+![Ekran görüntüsü 2024-03-17 205152](https://github.com/NurullahDnc/e-commerces-next.js/assets/150585098/d95018c0-bfd3-440d-a1d9-98b9baf9af75)
+![Ekran görüntüsü 2024-03-17 205215](https://github.com/NurullahDnc/e-commerces-next.js/assets/150585098/45adb549-ca55-428c-b10e-98f3b0fa84eb)
+![Ekran görüntüsü 2024-03-17 205247](https://github.com/NurullahDnc/e-commerces-next.js/assets/150585098/526e3338-aa4b-4ad2-8b9a-a6d808d6f0ce)
+![Ekran görüntüsü 2024-03-17 205407](https://github.com/NurullahDnc/e-commerces-next.js/assets/150585098/0cd4b4a6-ea0c-41eb-95bb-db6acf91a61a)
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+  ## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  ### Nurullah Dinç
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  - [ ✉️ nurullah.dinc.156@gmail.com]()
+  - Linkedin : [https://www.linkedin.com/in/nurullah-dinc/](https://www.linkedin.com/in/nurullah-dinc/)
