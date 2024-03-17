@@ -27,12 +27,12 @@
 
 
   ## Build
-  -Next.js
-  -TypeScript
-  -Firebase
-  -ContextApi  
-  -Tailwindcss
-  -Axios
+  - Next.js
+  - TypeScript
+  - Firebase
+  - ContextApi  
+  - Tailwindcss
+  - Axios
   
 
 
