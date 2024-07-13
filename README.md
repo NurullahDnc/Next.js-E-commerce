@@ -13,7 +13,7 @@
 ## About The Project
  
  
-
+ 
 ![Ekran görüntüsü 2024-03-17 205049](https://github.com/NurullahDnc/e-commerces-next.js/assets/150585098/f72dcac5-8fe9-4c03-b043-523def66ca18)
 
 <hr/>
